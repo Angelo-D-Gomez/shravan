@@ -25,9 +25,10 @@ still tempted to fight with your fists.")
             print("You decide to punch the goons with your fists.")
             battle(game, p, goon1)
             battle(game, p, goon2)
-            # Reward them a knife if won
-            print("You have won the fight, and therefore rewarded a knife.")
+            # Reward them a knife if won + currency
+            print("You have won the fight, and therefore rewarded a knife and 2 coins.")
             p.items.append("Knife")
+            p.currency += 2
 
         elif option == "2":
             print("The goons now begin to chase you. You start running, and come across a pipe on the ground.")
@@ -43,6 +44,9 @@ still tempted to fight with your fists.")
                 print("You then start to attack the goons.")
                 battle(game, p, goon1)
                 battle(game, p, goon2)
+                # Award currency
+                print("You have won the fight, and therefore rewarded 2 coins.")
+                p.currency += 2
 
             if option == "2":
                 print("You decide to keep running, but eventually get tired and therefore lose 2 HP.")
@@ -52,9 +56,10 @@ still tempted to fight with your fists.")
                 print("You are now forced to fight the goons with your fists as you have nowhere else to go.")
                 battle(game, p, goon1)
                 battle(game, p, goon2)
-                # Tell player they got a knife
-                print("You have won the fight, and therefore rewarded a knife.")
+                # Tell player they got a knife + currency
+                print("You have won the fight, and therefore rewarded a knife and 2 coins.")
                 p.items.append("Knife")
+                p.currency += 2
 
 # If choice 2 is selected set up an rng scenario for the player to dodge the fight with the goons
     elif choice == "2":
@@ -86,7 +91,7 @@ information?\n 1. Yes 2. No")
         print("That freaky monster is taking over this whole town! What are you doing here?")
         option = None
         print("1. Explain that you are a bounty hunter and want to murder Krag \
-    2. Say that you are just there to visit family")
+2. Say that you are just there to visit family")
         option = game.playerChoice2("Explain that you are a bounty hunter and want to murder Krag",
                                     "Say that you are just there to visit family")
 
@@ -97,16 +102,16 @@ information?\n 1. Yes 2. No")
             print("You explain the benefits of murdering Krag to the boy.\n")
             print("The boy understands, and gives you more information.")
             print("Ok, ok. I get it now. So, all of a sudden, this freaky monster came into town and has started \
-    to scare people, including me! Ever since then, people have tried to stay away from it. But now that it is there, a \
-    lot of people are stuck in their homes. There are also these weird goon thingys that are patrolling the town, which \
-    you seemed to take care of. Oh... got to go! I will try to see you again!")
+to scare people, including me! Ever since then, people have tried to stay away from it. But now that it is there, a \
+lot of people are stuck in their homes. There are also these weird goon thingys that are patrolling the town, which \
+you seemed to take care of. Oh... got to go! I will try to see you again!")
 
         elif option == "2":
             print("Oh... well that is fun! Just be careful of that freaky monster over there.\n")
 
         print("Someone in the town yells everyone to go inside.")
         print("Everybody goes inside, including you. You end up going into an armour shop, where you find a merchant \
-        hiding")
+hiding")
         print("The merchant stands back up, and seems to be in shock.\n")
         print("Oh! Um... sorry about that. What would you like to purchase here?\n")
         print("You explain to the merchant your mission.")
@@ -119,7 +124,7 @@ information?\n 1. Yes 2. No")
             # If no money for armor
             if p.currency < 2:
                 print("So you don't have those 2 coins, eh? Well, I want that annoying monster out of here, so I might \
-        as well give you the armour for free")
+as well give you the armour for free")
                 p.items.append(armour)
                 p.maxHP += 10
                 p.currHP += 10
@@ -136,3 +141,5 @@ information?\n 1. Yes 2. No")
         print("You head outside and Krag instantly turns towards you. You step forward and decide to battle him.")
         KRAG = Enemy("Krag", 10, 8)
         battle(game, p, KRAG)
+        # Give currency award + something else
+        p.currency += 5
