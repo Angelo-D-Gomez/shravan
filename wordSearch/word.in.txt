@@ -1,0 +1,13 @@
+6 6
+
+J M K L L C
+B F S Q E H
+M O U S E E
+L L F B S E
+Z V O I L S
+Y U X A E E
+
+3
+MOUSE
+FOX
+CHEESE
