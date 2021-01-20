@@ -1,6 +1,6 @@
 def read_input():
     # open file for reading
-    in_file = open('word.in', 'r')
+    in_file = open('word.in.txt', 'r')
     # read m and n
     coords = in_file.readline().strip().split()
     m = int(coords[0])
@@ -33,13 +33,14 @@ def main():
     # read input from file
     word_grid, word_list = read_input()
 
-    #### do NOT change anything above this line ####
-    #### make changes in this section only      ####
+    # do NOT change anything above this line
 
     # call word_search() using the word_grid and word_list parameters
     for word in word_list:
-        word_coordinates = word_search(word_grid, word)
-        print(str(word_coordinates[0]) + " " + str(word_coordinates[1]))
+        word_search(word_grid, word)
+        # word_coordinates = word_search(word_grid, word)
+        # print(str(word_coordinates[0]) + " " + str(word_coordinates[1]))
+
 
 
 #  Input: word_grid is a 2-D list of characters
@@ -48,7 +49,9 @@ def main():
 #          indices (row, col) of the first letter of the word_to_search
 #          if word does not exist, return (-1, -1)
 def word_search (word_grid, word_to_search):
-    pass
+    for x in word_grid:
+        for y in x:
+            print(y)
 
 
 if __name__ == "__main__":
