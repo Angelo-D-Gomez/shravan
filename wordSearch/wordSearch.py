@@ -49,9 +49,35 @@ def main():
 #          indices (row, col) of the first letter of the word_to_search
 #          if word does not exist, return (-1, -1)
 def word_search (word_grid, word_to_search):
-    for x in word_grid:
-        for y in x:
-            print(y)
+    first_letter = word_to_search[0]
+    for x in range(len(word_grid)):
+        for y in range(len(word_grid[x])):
+            if first_letter == word_grid[x][y]:
+                second_letter = word_to_search[1]
+                # Check upwards
+                if x != 0:
+                    if second_letter == word_grid[x - 1][y]:
+                        for z in range(x - 2, len(word_to_search), -1):
+                            pass
+                # Check right
+                if y != len(word_grid[x]) - 1:
+                    if second_letter == word_grid[x][y + 1]:
+                        pass
+                # Check downwards
+                if x != len(word_grid) - 1:
+                    if second_letter == word_grid[x + 1][y]:
+                        pass
+                # Check left
+                if y != 0:
+                    if second_letter == word_grid[x][y - 1]:
+                        pass
+                # Second letter not near
+                else:
+                    pass
+
+
+# We were here
+# (r, c)
 
 
 if __name__ == "__main__":

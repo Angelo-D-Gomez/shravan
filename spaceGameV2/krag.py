@@ -5,7 +5,7 @@ from random import randint
 
 def krag(game, p):
     print("Now going to planet Bababoeey to slay Krag the Cruel.")
-    print("You land your ship in a parking bay in a packed city.\nBadar knows that he has a hit on him\
+    print("You land your ship in a parking bay in a packed city.\nKrag knows that he has a hit on him. \
 His goons are patrolling the town. What do you want to do?\n1. Fight the goons 2. Try to sneak past them.")
 
     choice = game.playerChoice2("Fight the goons", "Try to sneak past them.")

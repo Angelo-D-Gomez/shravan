@@ -29,7 +29,7 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
             krag(self, self.p)
 
         elif mission == "2":
-            badar()
+            badar(self, self.p)
 
         else:
-            jupiter()
+            jupiter(self, self.p)

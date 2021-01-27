@@ -21,4 +21,26 @@ directly at you.")
         battle(game, p, troop1)
         battle(game, p, troop2)
         battle(game, p, troop3)
-        p.items.append(" ")
+        print("You won the battle and are awarded a Stone Axe.")
+        p.items.append("Stone Axe")
+
+    # Choice 2: Run
+    elif choice == "2":
+        troop1 = Enemy("troop1", 5, 2)
+        troop2 = Enemy("troop2", 5, 2)
+        troop3 = Enemy("troop3", 5, 2)
+
+        print("You run away until you reach a dead end. You get tired from running, but the troops get extra tired.")
+        p.currHP -= 1
+        troop1.health -= 2
+        troop2.health -= 2
+        troop3.health -= 2
+        print("However, your only option now is to fight the troops.")
+        battle(game, p, troop1)
+        battle(game, p, troop2)
+        battle(game, p, troop3)
+
+
+
+
+
