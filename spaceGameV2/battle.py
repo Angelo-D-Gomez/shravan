@@ -60,8 +60,8 @@ def battle(game, p, e):
         if tryagain == "1":
             # The loss of currency can just be a punishment rather than a requirement
             p.currency -= 1
-            p.currHP = self.p.maxHP
-            e.health = enemy.maxHP
+            p.currHP = p.maxHP
+            e.health = e.maxHP
             battle(game, p, e)
             return
         elif tryagain == "2":

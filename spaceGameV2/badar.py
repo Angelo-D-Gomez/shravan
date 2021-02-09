@@ -21,8 +21,16 @@ directly at you.")
         battle(game, p, troop1)
         battle(game, p, troop2)
         battle(game, p, troop3)
-        print("You won the battle and are awarded a Stone Axe.")
+        print("You won the battle and are awarded two coins plus a Stone Axe.")
+        p.currency += 2
         p.items.append("Stone Axe")
+        # NOTE: Consider making a function for this
+        if p.items == "Knife":
+            p.attack += 1
+        elif p.items == "Pipe":
+            p.attack += 3
+        else:
+            p.attack += 5
 
     # Choice 2: Run
     elif choice == "2":
@@ -39,8 +47,10 @@ directly at you.")
         battle(game, p, troop1)
         battle(game, p, troop2)
         battle(game, p, troop3)
+        print("You won the battle and are awarded a Stone Axe.")
 
 
+# Return player when done
 
 
 

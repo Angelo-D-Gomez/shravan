@@ -28,6 +28,7 @@ still tempted to fight with your fists.")
             # Reward them a knife if won + currency
             print("You have won the fight, and therefore rewarded a knife and 2 coins.")
             p.items.append("Knife")
+            p.attack += 4
             p.currency += 2
 
         elif option == "2":
@@ -38,9 +39,9 @@ still tempted to fight with your fists.")
             option = game.playerChoice2("Pick up the pipe and attack", "Continue to run away")
 
             if option == "1":
-                print("You decide to pick up the pipe, which increases your attack damage by 3 HP.")
+                print("You decide to pick up the pipe, which increases your attack damage by 2 HP.")
                 p.items.append("Pipe")
-                p.attack += 3
+                p.attack += 2
                 print("You then start to attack the goons.")
                 battle(game, p, goon1)
                 battle(game, p, goon2)
@@ -59,6 +60,7 @@ still tempted to fight with your fists.")
                 # Tell player they got a knife + currency
                 print("You have won the fight, and therefore rewarded a knife and 2 coins.")
                 p.items.append("Knife")
+                p.attack += 4
                 p.currency += 2
 
 # If choice 2 is selected set up an rng scenario for the player to dodge the fight with the goons
@@ -109,37 +111,46 @@ you seemed to take care of. Oh... got to go! I will try to see you again!")
         elif option == "2":
             print("Oh... well that is fun! Just be careful of that freaky monster over there.\n")
 
-        print("Someone in the town yells everyone to go inside.")
-        print("Everybody goes inside, including you. You end up going into an armour shop, where you find a merchant \
+    if option == "2":
+        # Currently, there is no real benefit of choosing either option
+        print("You decide to simply continue on.")
+
+    # Will happen either way
+    print("Someone in the town yells everyone to go inside.")
+    print("Everybody goes inside, including you. You end up going into an armour shop, where you find a merchant \
 hiding")
-        print("The merchant stands back up, and seems to be in shock.\n")
-        print("Oh! Um... sorry about that. What would you like to purchase here?\n")
-        print("You explain to the merchant your mission.")
-        print("Ahh... I see. Well, you have come to the right place, at the right time! \
-        I have just 1 set of armour left in stock. It costs 2 coins. Would you like to have it?")
-        print("1. Yes 2. No")
-        option = None
-        option = game.playerChoice2("Yes", "No")
-        if option == "1":
-            # If no money for armor
-            if p.currency < 2:
-                print("So you don't have those 2 coins, eh? Well, I want that annoying monster out of here, so I might \
+    print("The merchant stands back up, and seems to be in shock.\n")
+    print("Oh! Um... sorry about that. What would you like to purchase here?\n")
+    print("You explain to the merchant your mission.")
+    print("Ahh... I see. Well, you have come to the right place, at the right time! \
+    I have just 1 set of armour left in stock. It costs 2 coins. Would you like to have it?")
+    print("1. Yes 2. No")
+    option = None
+    option = game.playerChoice2("Yes", "No")
+    if option == "1":
+        # If no money for armor
+        if p.currency < 2:
+            print("So you don't have those 2 coins, eh? Well, I want that annoying monster out of here, so I might \
 as well give you the armour for free")
-                p.items.append(armour)
-                p.maxHP += 10
-                p.currHP += 10
-            else:
-                # If they have money for armour...
-                p.currency -= 2
-                p.maxHP += 10
-                p.currHP += 10
-                print("Thanks for coming! Good luck with your battle!")
+            p.items.append(armour)
+            p.maxHP += 10
+            p.currHP += 10
+        else:
+            # If they have money for armour...
+            p.currency -= 2
+            p.maxHP += 10
+            p.currHP += 10
+            print("Thanks for coming! Good luck with your battle!")
 
-        elif option == "2":
-            print("Well, alright. Hopefully we will meet again!")
+    elif option == "2":
+        print("Well, alright. Hopefully we will meet again!")
 
-        print("You head outside and Krag instantly turns towards you. You step forward and decide to battle him.")
-        KRAG = Enemy("Krag", 10, 8)
-        battle(game, p, KRAG)
-        # Give currency award + something else
-        p.currency += 5
+    print("You head outside and Krag instantly turns towards you. You step forward and decide to battle him.")
+    KRAG = Enemy("Krag", 10, 8)
+    battle(game, p, KRAG)
+    # Give currency award + something else
+    p.currency += 5
+    print("Mission: Kill Krag the Cruel")
+    print("COMPLETE")
+    return p
+    # NOTE: Allow user to do other missions after this one
