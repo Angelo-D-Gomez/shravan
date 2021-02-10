@@ -47,7 +47,7 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
 
         print("Choose your next mission.")
         print("1. " + self.missionopt[1][0] + " 2. " + self.missionopt[1][1])
-        # Temporarily use don't use playerChoice2
+        # Temporarily don't use playerChoice2
         mission = input()
         while mission not in ["1", "2"]:
             mission = input("Please enter a number for the target\n\
@@ -56,5 +56,8 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
             pass
         elif mission == "2":
             pass
+
+        # Note: Once only one mission remains,
+        # make simple prompt for player to continue onto next mission
 
 

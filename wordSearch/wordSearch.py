@@ -37,9 +37,8 @@ def main():
 
     # call word_search() using the word_grid and word_list parameters
     for word in word_list:
-        word_search(word_grid, word)
-        # word_coordinates = word_search(word_grid, word)
-        # print(str(word_coordinates[0]) + " " + str(word_coordinates[1]))
+        word_coordinates = word_search(word_grid, word)
+        print(str(word_coordinates[0]) + " " + str(word_coordinates[1]))
 
 
 
@@ -57,27 +56,56 @@ def word_search (word_grid, word_to_search):
                 # Check upwards
                 if x != 0:
                     if second_letter == word_grid[x - 1][y]:
-                        for z in range(x - 2, len(word_to_search), -1):
-                            pass
+                        z = 2
+                        while z < len(word_to_search):
+                            if word_grid[x - z][y] == word_to_search[z]:
+                                z += 1
+                            else:
+                                break
+                        if z == len(word_to_search):
+                            tuples = (x, y)
+                            return tuples
                 # Check right
                 if y != len(word_grid[x]) - 1:
                     if second_letter == word_grid[x][y + 1]:
-                        pass
+                        z = 2
+                        while z < len(word_to_search):
+                            if word_grid[x][y + z] == word_to_search[z]:
+                                z += 1
+                            else:
+                                break
+                        if z == len(word_to_search):
+                            tuples = (x, y)
+                            return tuples
                 # Check downwards
                 if x != len(word_grid) - 1:
                     if second_letter == word_grid[x + 1][y]:
-                        pass
+                        z = 2
+                        while z < len(word_to_search) and x + z < len(word_grid):
+                            if word_grid[x + z][y] == word_to_search[z]:
+                                z += 1
+                            else:
+                                break
+                        if z == len(word_to_search):
+                            tuples = (x, y)
+                            return tuples
                 # Check left
                 if y != 0:
                     if second_letter == word_grid[x][y - 1]:
-                        pass
+                        z = 2
+                        while z < len(word_to_search):
+                            if word_grid[x][y - z] == word_to_search[z]:
+                                z += 1
+                            else:
+                                break
+                        if z == len(word_to_search):
+                            tuples = (x, y)
+                            return tuples
                 # Second letter not near
                 else:
                     pass
+    return (-1, -1)
 
-
-# We were here
-# (r, c)
 
 
 if __name__ == "__main__":
