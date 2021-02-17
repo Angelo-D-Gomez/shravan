@@ -1,0 +1,11 @@
+An interval on the number line is denoted by a pair of values like so: (3, 8). Our intervals are closed. 
+So this interval represents all numbers between 3 and 8 inclusive. The first number is always going to be strictly less than the second number. 
+Normally in mathematics we represent a closed interval with square brackets. But in our program we will represent an interval by means of a tuple 
+and tuples in Python are represented with parentheses.
+
+If we have two intervals like (7, 12) and (4, 9), they overlap. 
+We can collapse overlapping intervals into a single interval (4, 12). 
+But the following two intervals (-10, -2) and (1, 5) are non-intersecting intervals and cannot be collapsed.
+
+The aim in this assignment is take a set of intervals and collapse all the overlapping intervals and print the smallest set of non-intersecting 
+intervals in ascending order of the lower end of the interval and then print the intervals in increasing order of the size of the interval.
