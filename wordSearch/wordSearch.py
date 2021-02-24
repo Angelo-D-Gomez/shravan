@@ -53,6 +53,7 @@ def word_search (word_grid, word_to_search):
         for y in range(len(word_grid[x])):
             if first_letter == word_grid[x][y]:
                 second_letter = word_to_search[1]
+                # Note: Consider checking diagonally
                 # Check upwards
                 if x != 0:
                     if second_letter == word_grid[x - 1][y]:
@@ -65,6 +66,9 @@ def word_search (word_grid, word_to_search):
                         if z == len(word_to_search):
                             tuples = (x, y)
                             return tuples
+                # Check upper right corner
+
+
                 # Check right
                 if y != len(word_grid[x]) - 1:
                     if second_letter == word_grid[x][y + 1]:
@@ -77,6 +81,8 @@ def word_search (word_grid, word_to_search):
                         if z == len(word_to_search):
                             tuples = (x, y)
                             return tuples
+                # Check lower right corner
+
                 # Check downwards
                 if x != len(word_grid) - 1:
                     if second_letter == word_grid[x + 1][y]:
@@ -89,6 +95,8 @@ def word_search (word_grid, word_to_search):
                         if z == len(word_to_search):
                             tuples = (x, y)
                             return tuples
+                # Check lower left corner
+
                 # Check left
                 if y != 0:
                     if second_letter == word_grid[x][y - 1]:
@@ -101,6 +109,8 @@ def word_search (word_grid, word_to_search):
                         if z == len(word_to_search):
                             tuples = (x, y)
                             return tuples
+                # Check upper left corner
+
                 # Second letter not near
                 else:
                     pass

@@ -1,8 +1,10 @@
 # Input: tuples_list is an unsorted list of tuples denoting intervals
 # Output: a list of merged tuples sorted by the lower number of the
 #         interval
-def merge_tuples (tuples_list):
-  pass
+def merge_tuples(tuples_list):
+  merge_tup = []
+
+  return merge_tup
 
 # Input: tuples_list is a list of tuples of denoting intervals
 # Output: a list of tuples sorted by ascending order of the size of
@@ -15,9 +17,17 @@ def sort_by_interval_size (tuples_list):
 
 def main():
   # read the input data and create a list of tuples
+  in_file = open('intervals.in.txt', 'r')
+  interval_num = in_file.readline()
+  intervals_list = []
+  for x in range(int(interval_num)):
+    interval = in_file.readline().split(" ")
+    int_tup = (int(interval[0]), int(interval[1]))
+    intervals_list.append(int_tup)
+  in_file.close()
 
   # merge the list of tuples
-
+  intervals_list = merge_tuples(intervals_list)
   # print the merged list
 
   # sort the list of tuples according to the size of the interval
