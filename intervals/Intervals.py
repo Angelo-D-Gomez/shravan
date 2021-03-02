@@ -3,6 +3,17 @@
 #         interval
 def merge_tuples(tuples_list):
   merge_tup = []
+  while tuples_list:
+    for x in range(1, len(tuples_list)):
+      if tuples_list[0][0] > tuples_list[x][0]:
+        if tuples_list[0][0] < tuples_list[x][1]:
+          if tuples_list[0][1] > tuples_list[x][1]:
+            # Make into tuples (with greatest/smallest interval)
+            # Then remove tuple x, make new merged tuple tuples_list[0][0]
+            # Then break
+            pass
+          else:
+            pass
 
   return merge_tup
 

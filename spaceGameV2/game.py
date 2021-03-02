@@ -6,12 +6,10 @@ from badar import badar
 
 class Game:
 
-
-
     def __init__(self, player):
         self.p = player
         self.missionopt = [["1", "2", "3"],
-                         ["Krag the Cruel", "Badar the Barbaric", "Jupiter the Giant"]]
+                           ["Krag the Cruel", "Badar the Barbaric", "Jupiter the Giant"]]
 
     def playerChoice2(self, choice1, choice2):
         choice = input()
@@ -52,12 +50,22 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
         while mission not in ["1", "2"]:
             mission = input("Please enter a number for the target\n\
 1. " + self.missionopt[1][0] + " 2. " + self.missionopt[1][1])
+        # If mission is '1': Check first position
         if mission == "1":
-            pass
+            if self.missionopt[1][0] == "Krag the Cruel":
+                self.p = krag(self, self.p)
+            elif self.missionopt[1][0] == "Badar the Barbaric":
+                self.p = badar(self, self.p)
+            elif self.missionopt[1][0]:
+                self.p = jupiter(self, self.p)
+        # If mission is '2': Check second position
         elif mission == "2":
-            pass
+            if self.missionopt[1][1] == "Krag the Cruel":
+                self.p = krag(self, self.p)
+            elif self.missionopt[1][1] == "Badar the Barbaric":
+                self.p = badar(self, self.p)
+            elif self.missionopt[1][1]:
+                self.p = jupiter(self, self.p)
 
         # Note: Once only one mission remains,
         # make simple prompt for player to continue onto next mission
-
-

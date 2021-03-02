@@ -6,7 +6,7 @@ from random import randint
 
 def badar(game, p):
     print("Now going to planet Disco to slay Badar the Barbaric")
-    print("You land you ship next to a playground in a very open town.\nBadar's troops find you and are now looking\
+    print("You land you ship next to a playground in a very open town.\nBadar's troops find you and are now looking \
 directly at you.")
     print("What do you want to do?\n1. Fight the troops 2. Try to run away.")
     choice = game.playerChoice2("Fight the troops", "Try to run away.")
@@ -48,6 +48,8 @@ directly at you.")
         battle(game, p, troop2)
         battle(game, p, troop3)
         print("You won the battle and are awarded a Stone Axe.")
+
+
 
 
 # Return player when done
