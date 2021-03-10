@@ -3,18 +3,24 @@
 #         interval
 def merge_tuples(tuples_list):
   merge_tup = []
-  while tuples_list:
+  while tuples_list != []:
+    y = 1
+    list_top = tuples_list[0]
     for x in range(1, len(tuples_list)):
-      if tuples_list[0][0] > tuples_list[x][0]:
-        if tuples_list[0][0] < tuples_list[x][1]:
-          if tuples_list[0][1] > tuples_list[x][1]:
-            # Make into tuples (with greatest/smallest interval)
-            # Then remove tuple x, make new merged tuple tuples_list[0][0]
-            # Then break
-            pass
-          else:
-            pass
+      if tuples_list[x][0] >= list_top[0] and tuples_list[x][0] <= list_top[1]:
+        tuples_list[0] = (list_top[0], tuples_list[x][1])
+        tuples_list.remove(tuples_list[x])
+        break
+      elif tuples_list[x][1] >= list_top[0] and tuples_list[x][1] <= list_top[1]:
+        tuples_list[0] = (tuples_list[x][0], list_top[1])
+        tuples_list.remove(tuples_list[x])
+        break
 
+      y += 1
+    if y == len(tuples_list):
+      merge_tup.append(tuples_list[0])
+      tuples_list.remove(tuples_list[0])
+  print(merge_tup)
   return merge_tup
 
 # Input: tuples_list is a list of tuples of denoting intervals

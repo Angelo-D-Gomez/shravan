@@ -50,6 +50,7 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
         while mission not in ["1", "2"]:
             mission = input("Please enter a number for the target\n\
 1. " + self.missionopt[1][0] + " 2. " + self.missionopt[1][1])
+
         # If mission is '1': Check first position
         if mission == "1":
             if self.missionopt[1][0] == "Krag the Cruel":
@@ -58,6 +59,7 @@ You have 3 targets to go kill. Who would you like to kill first?\n\
                 self.p = badar(self, self.p)
             elif self.missionopt[1][0]:
                 self.p = jupiter(self, self.p)
+
         # If mission is '2': Check second position
         elif mission == "2":
             if self.missionopt[1][1] == "Krag the Cruel":
